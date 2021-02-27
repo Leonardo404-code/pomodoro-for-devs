@@ -7,12 +7,14 @@ export const ChallegeContext = createContext({});
 
 export function ChallegesProvider({children, ...rest}){
 
-
-
     const [level, setLevel] = useState(rest.level ?? 1);
+
     const [currentExperience, setCurrentExperience] = useState(rest.currentExperience ?? 0);
+
     const [challegesCompleted, setChallegesCompleted] = useState(rest.challegesCompleted ?? 0)
+
     const [activeChallege, setActiveChallege] = useState(null); 
+    
     const [isLevelModalOpen, setIsLvelUpModalOpen] = useState(false);
 
     const experienceToNextLevel = Math.pow((level + 1) * 4, 2)
@@ -56,34 +58,35 @@ export function ChallegesProvider({children, ...rest}){
     }
 
     function completeChallege(){
-        if(!activeChallege) return;
+       if (!activeChallege) {
+      return;
+    }
 
-        const {amount} = activeChallege;
+    const { amount } = activeChallege
 
-        let finalExperience = currentExperience + amount;
+    let finalExperience = currentExperience + amount;
 
-        if(finalExperience >= experienceToNextLevel){
-            finalExperience = finalExperience - experienceToNextLevel;
-            levelUp();
+    if (finalExperience >= experienceToNextLevel) {
+      finalExperience = finalExperience - experienceToNextLevel;
+      levelUp()
+    }
 
-            setCurrentExperience(finalExperience);
-            setActiveChallege(null);
-            setChallegesCompleted(challegesCompleted + 1);
-        }
+    setChallegesCompleted(challegesCompleted + 1);
+    setCurrentExperience(finalExperience);
+    setActiveChallege(null);
     }
 
     return(
         <ChallegeContext.Provider value={{
-            level, 
-            currentExperience, 
-            challegesCompleted,
-            experienceToNextLevel,
-            levelUp,
-            activeChallege,
-            startNewChallege,
-            resetChallege,
-            completeChallege,
-            closeLevelUpModal,
+                level,
+                challegesCompleted,
+                currentExperience,
+                experienceToNextLevel,
+                activeChallege,
+                completeChallege,
+                startNewChallege,
+                resetChallege,
+                closeLevelUpModal,
             }}>
             {children}
             {isLevelModalOpen && <LevelUpModal />}

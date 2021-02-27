@@ -1,11 +1,12 @@
+import React from 'react';
 import { createContext, useState, useEffect, useContext } from "react";
 import {ChallegeContext} from './ChallegeContext'
 
-export const CountDownContext = createContext({})
-
 let countdownTimeout = setTimeout;
 
-export function CountDownProvider({children}){
+export const CountDownContext = createContext({})
+
+export function CountDownProvider({ children }){
 
     const {startNewChallege} = useContext(ChallegeContext);
 

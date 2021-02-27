@@ -26,7 +26,9 @@ export function ChallegeBox(){
                 <header>Ganhe {activeChallege.amount} xp</header>
 
                 <main>
-                    <img src="icons/body.svg"/>
+                    {activeChallege.type === 'body'
+                    ? <img src="/icons/body.svg" />
+                        : <img src="/icons/eye.sv" /> }
                     <strong>Novo Desafio</strong>
                     <p>{activeChallege.description}</p>
                 </main>
@@ -53,7 +55,7 @@ export function ChallegeBox(){
                 <strong>Finalize um ciclo para receber um desafio</strong>
                 <p>
                     <img src="icons/level-up.svg" alt="Level Up"/>
-                    Avance de Level completando um desafio
+                    Avance de level completando um desafio
                 </p>
             </div>
             )}
