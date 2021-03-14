@@ -1,4 +1,4 @@
-# Pomodoro for devs APP
+# Pomodoro for devs
 
 <div aling="center">
     <img src="./public/demonstation.gif">
