@@ -1,11 +1,13 @@
 import React, { useContext } from 'react';
 import { ChallegeContext } from '../contexts/ChallegeContext';
 import { CountDownContext } from '../contexts/CountDownContext';
+import {ThemeContext} from '../contexts/DarkButtonContext';
 import styles from '../styles/components/ChallegeBox.module.css';
 
 
 export function ChallegeBox(){
     const {activeChallege, resetChallege, completeChallege} = useContext(ChallegeContext);
+    const {isDark} = useContext(ThemeContext);
 
     const {resetCountdown} = useContext(CountDownContext);
 
@@ -20,7 +22,7 @@ export function ChallegeBox(){
     }
 
     return(
-        <div className={styles.challegeBoxContainer}>
+        <div className={isDark ? styles.challegeBoxContainerDark : styles.challegeBoxContainer}>
             { activeChallege ? (
              <div className={styles.challegeActive}>   
                 <header>Ganhe {activeChallege.amount} xp</header>
@@ -28,7 +30,7 @@ export function ChallegeBox(){
                 <main>
                     {activeChallege.type === 'body'
                     ? <img src="/icons/body.svg" />
-                        : <img src="/icons/eye.sv" /> }
+                        : <img src="/icons/eye.svg" /> }
                     <strong>Novo Desafio</strong>
                     <p>{activeChallege.description}</p>
                 </main>

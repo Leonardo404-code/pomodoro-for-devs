@@ -37,8 +37,8 @@ export function CountDownProvider({ children }){
             setHasFinished(true);
             setIsActive(false);
             startNewChallege();
-
         }
+
     }, [isActive, time])
 
     return(
@@ -52,5 +52,5 @@ export function CountDownProvider({ children }){
         }}>
             {children}
         </CountDownContext.Provider>
-    )
+    );
 }
