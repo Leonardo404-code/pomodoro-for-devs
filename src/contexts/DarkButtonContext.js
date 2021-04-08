@@ -8,11 +8,6 @@ export function ThemeContextProvider({children}){
 
     function ChangeTheme(){
         setIsDark(!isDark);
-        if(isDark){
-            return console.log('Modo dark ativado');
-        } else {
-            return console.log('Modo dark desativado')
-        }
     }
 
     return(

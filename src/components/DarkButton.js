@@ -1,5 +1,5 @@
 import React from 'react';
-import {ThemeContext} from '../contexts/DarkButtonContext';
+import { ThemeContext } from '../contexts/DarkButtonContext';
 import styles from '../styles/components/DarkButton.module.css';
 import { useContext } from 'react';
 

@@ -19,6 +19,11 @@
   align-content: center;
 }
 
+.darkButtonContainer {
+  text-align: end;
+  padding-right: 2rem;
+}
+
 @media (max-width: 720px) {
   .container section {
     display: flex;

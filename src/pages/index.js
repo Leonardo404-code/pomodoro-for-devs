@@ -41,7 +41,9 @@ export default function Home(props) {
             </Head>
 
             <ExperienceBar />
-            <DarkButton />
+            <div className={styles.darkButtonContainer}>
+              <DarkButton />
+            </div>
             
             <CountDownProvider>
 
